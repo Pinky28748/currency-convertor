@@ -15,7 +15,7 @@ const CurrencyConvertor = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/exchange/convert', {
+      const response = await fetch('http://localhost:3000/api/convert', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,6 +64,15 @@ const CurrencyConvertor = () => {
             value={targetCurrency}
             onChange={setTargetCurrency}
           />
+        </div>
+        {/* Button to trigger conversion */}
+        <div className="flex justify-center">
+          <button
+            onClick={handleConvert}
+            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          >
+            Convert
+          </button>
         </div>
 
         {loading ? (
